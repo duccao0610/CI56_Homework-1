@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý hàng hóa</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div>
+        <h1>Submit goods</h1>
+        <select name="goodsType" id="goodsType">
+            <option value="Goods">Goods</option>
+            <option value="Housewares">Housewares</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Food">Food</option>
+        </select>
+
+        <button id="submitBtn">Submit</button>
+
+        <input type="text" id="id" class="submitting" placeholder="ID">
+        <input type="text" id="name" class="submitting" placeholder="Name">
+        <input type="number" id="price" class="submitting" placeholder="Price">
+        <input type="text" id="manu" class="submitting" placeholder="Manufacturer">
+        <input type="number" id="discount" class="submitting" placeholder="Discount (%)">
+        <input type="text" id="dateMod" class="submitting" placeholder="Date modified">
+
+        <input type="hidden" id="reliability" class="addition housewares submitting" placeholder="Reliability">
+        <input type="hidden" id="origin" class="addition clothes submitting" placeholder="Origin">
+        <input type="hidden" id="material" class="addition clothes submitting" placeholder="Material">
+        <input type="hidden" id="flavor" class="addition food submitting" placeholder="Flavor">
+    </div>
+
+    <div>
+        <h1>Sell goods</h1>
+        <input type="text" id="sellId" placeholder="Goods' ID you want to sell">
+        <button id="sellBtn">Sell</button>
+    </div>
+
+    <p id="rev">Doanh thu: 0</p>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
