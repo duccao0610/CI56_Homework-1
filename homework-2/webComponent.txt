@@ -1,0 +1,3 @@
+1. Web component là một tập hợp các web APIs cho phép chúng ta tạo ra một thẻ HTML riêng có thể tùy chỉnh, đóng gói, hoặc tái sử dụng. Web component được xây dựng trên chuẩn web hiện tại, vì thế có thể hoạt động trên tất cả các trình duyệt và tương thích với tất cả các library và framework Javascript có thể làm việc với HTML.
+2. Cần sử dụng web component bởi vì yêu cầu đối với web ngày càng phức tạp, dẫn đến lượng thành phần trong trang web ngày càng lớn. Nếu không có giải pháp để tùy biến các thẻ HTML thì việc bảo trì và nâng cấp với những trang web phức tạp sẽ vô cùng khó khăn.
+3. Các công nghệ sử dụng trong web component: Custom Elements, Shadow DOM, HTML Templates
