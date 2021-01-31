@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1a</title>
+</head>
+
+<body>
+    <script>
+        let input = prompt('Nhập mảng A');
+        let a = input.split(',');
+        for (let i = 0; i < a.length; i++) {
+            a[i] = Number(a[i]);
+        }
+
+        let m = prompt('Nhập số M');
+        let exist = false;
+
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] >= 0) {
+                for (let j = i + 1; j < a.length; j++) {
+                    if (i != j && a[j] > 0 && a[i] + a[j] == m) {
+                        console.log('Cặp số thỏa mãn là: ' + a[i] + ' và ' + a[j]);
+                        exist = true;
+                    }
+                }
+            }
+        }
+        if (exist == false) {
+            console.log('Không tìm thấy');
+        }
+
+    </script>
+</body>
+
+</html>
