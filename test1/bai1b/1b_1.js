@@ -21,11 +21,12 @@ for (let i = 0; i < m; i++) {
         }
     }
 
-    // for (let j = 0; j < n.length; j++) {
-    //     if (n[j].fur == temp) {
-    //         n[j].fur = 1;
-    //     }
-    // }
+    for (let j = 0; j < n.length; j++) {
+        if (n[j].fur == temp) {
+            n[j].fur = 1;
+            break;
+        }
+    }
 
     total += temp - 1;
 }
