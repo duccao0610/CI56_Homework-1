@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1</title>
+</head>
+
+<body>
+    <script>
+        let input1 = prompt('Nhap day dau tien');
+        let input2 = prompt('Nhap day thu hai');
+
+        let arr1 = input1.split(',');
+        let arr2 = input2.split(',');
+        let arr = arr1.concat(arr2);
+
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = Number(arr[i]);
+        }
+
+        let temp;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[j] >= arr[i]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+
+        console.log('Day da sap xep la: ' + arr);
+    </script>
+</body>
+
+</html>
