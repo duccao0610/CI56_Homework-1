@@ -9,14 +9,18 @@ let data = [
     { id: 6, name: 'Nhiệm vụ 6', description: 'Mô tả chi tiết cho nhiệm vụ', deadline: '2021/03/11', isCompleted: true }
 ];
 
-let $toDoTag = document.getElementsByTagName('to-do');
+let $app = document.getElementById('app');
 for (let i = 0; i < data.length; i++) {
-    $toDoTag[i].setAttribute('name', data[i].name);
-    $toDoTag[i].setAttribute('description', data[i].description);
-    $toDoTag[i].setAttribute('deadline', data[i].deadline);
+    let $toDo = document.createElement('to-do');
+
+    $toDo.setAttribute('name', data[i].name);
+    $toDo.setAttribute('description', data[i].description);
+    $toDo.setAttribute('deadline', data[i].deadline);
     if (data[i].isCompleted == true) {
-        $toDoTag[i].setAttribute('status', 'Hoàn thành');
+        $toDo.setAttribute('status', 'Hoàn thành');
     } else {
-        $toDoTag[i].setAttribute('status', 'Chưa hoàn thành');
+        $toDo.setAttribute('status', 'Chưa hoàn thành');
     }
+
+    $app.appendChild($toDo);
 }
