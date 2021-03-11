@@ -1,7 +1,7 @@
 const $template = document.createElement('template');
 $template.innerHTML = `
-    <div id="InfoContainer" style="margin-left: 10px">
-        <p id='name'></p>
+    <div style="margin-left: 10px">
+        <p id='name' style='font-style: italic'></p>
         <p id='age'></p>
         <p id='address'></p>
     </div>
@@ -24,11 +24,11 @@ export default class InfoContainer extends HTMLElement {
 
     attributeChangedCallback(attrName, oldValue, newValue) {
         if (attrName == 'name') {
-            this.$name.innerHTML = newValue;
+            this.$name.innerHTML = 'Name: ' + newValue;
         } else if (attrName == 'age') {
-            this.$age.innerHTML = newValue;
+            this.$age.innerHTML = 'Age: ' + newValue;
         } else if (attrName == 'address') {
-            this.$address.innerHTML = newValue;
+            this.$address.innerHTML = 'address: ' + newValue;
         }
     }
 }

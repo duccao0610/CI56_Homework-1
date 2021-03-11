@@ -31,16 +31,40 @@ let coursesData = [
 ]
 
 let $app = document.getElementById('app');
+
 for (let course of coursesData) {
+    let $course = document.createElement('div');
+
     let $courseContainer = document.createElement('course-container');
     $courseContainer.setAttribute('course-name', course.name);
     // $courseContainer.setAttribute('teacher', JSON.stringify(course.teacher));
     // $courseContainer.setAttribute('students', JSON.stringify(course.students));
     $courseContainer.setAttribute('status', course.status);
+    $course.appendChild($courseContainer);
 
+    let $teacher = document.createElement('div');
+    let $teacherHeading = document.createElement('h3');
+    $teacherHeading.innerHTML = "Teacher's information";
+    $teacher.appendChild($teacherHeading);
     let $teacherInfo = document.createElement('info-container');
     $teacherInfo.setAttribute('name', course.teacher.name);
+    $teacherInfo.setAttribute('age', course.teacher.age);
+    $teacherInfo.setAttribute('address', course.teacher.address);
+    $teacher.appendChild($teacherInfo);
+    $course.appendChild($teacher);
 
-    $app.appendChild($courseContainer);
-    $courseContainer.appendChild($teacherInfo);
+    let $students = document.createElement('div');
+    let $studentsHeading = document.createElement('h3');
+    $studentsHeading.innerHTML = "Students' information";
+    $teacher.appendChild($studentsHeading);
+    for (let student of course.students) {
+        let $studentInfo = document.createElement('info-container');
+        $studentInfo.setAttribute('name', student.name)
+        $studentInfo.setAttribute('age', student.age)
+        $studentInfo.setAttribute('address', student.address)
+        $students.appendChild($studentInfo);
+    }
+    $course.appendChild($students);
+
+    $app.appendChild($course);
 }

@@ -1,8 +1,8 @@
 const $template = document.createElement('template');
 $template.innerHTML = `
-    <div style="border: solid; margin: 10px; padding: 10px">
+    <div>
         <h2 id="courseName">Course name</h2>
-        <h3 id="status"></h3>
+        <h3 id="status">Status</h3>
     </div>
 `;
 
