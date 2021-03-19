@@ -29,8 +29,7 @@ export async function logIn(email, password) {
 
 
     if (!response.empty) {
-        console.log(response);
-        console.log(password);
+        alert('Logged in successfully');
     } else {
         alert('Incorrect email or password');
     }
