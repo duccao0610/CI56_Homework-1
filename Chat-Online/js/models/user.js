@@ -12,20 +12,28 @@ export async function register(name, email, password) {
             email: email,
             password: md5(password)
         });
+        alert('Register successfully');
     } else {
         alert('This email has been registered before!')
     }
-
-    alert('Register successfully');
 }
 
-export function logIn() {
+export async function logIn(email, password) {
+    let response = await firebase.firestore()
+        .collection('users')
+        .where('email', '==', email)
+        .get();
 
+    password = md5(password);
+
+    if (!response.empty) {
+        console.log(response);
+        console.log(password);
+    } else {
+        alert('Incorrect email or password');
+    }
 }
 
 export function getUserInfo() {
 
 }
-
-// xử lý bất đồng bộ: callback, promise, async/await
-// chỗ nào có promise -> có await -> có async
