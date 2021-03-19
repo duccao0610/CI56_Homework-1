@@ -19,12 +19,14 @@ export async function register(name, email, password) {
 }
 
 export async function logIn(email, password) {
+    password = md5(password);
+
     let response = await firebase.firestore()
         .collection('users')
         .where('email', '==', email)
+        .where('password', '==', password)
         .get();
 
-    password = md5(password);
 
     if (!response.empty) {
         console.log(response);
