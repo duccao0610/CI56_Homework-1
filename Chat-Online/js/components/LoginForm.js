@@ -1,4 +1,5 @@
-import { logIn } from "../models/user.js";
+import { logIn } from '../models/user.js';
+import { require, validateEmail } from '../models/utils.js';
 
 const $template = document.createElement('template');
 $template.innerHTML = /*html*/`
@@ -18,7 +19,7 @@ export default class LoginForm extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild($template.content.cloneNode(true));
 
-        this.$loginForm = this.shadowRoot.getElementById('login-form');
+        this.$LoginForm = this.shadowRoot.getElementById('login-form');
         this.$email = this.shadowRoot.getElementById('email');
         this.$password = this.shadowRoot.getElementById('password');
     }
@@ -26,45 +27,23 @@ export default class LoginForm extends HTMLElement {
 
     // được gọi 1 lần duy nhất khi thẻ hiển thị trong body lần đầu tiên
     connectedCallback() {
-        this.$loginForm.onsubmit = (event) => {
+        this.$LoginForm.onsubmit = (event) => {
             event.preventDefault();
             let email = this.$email.value;
             let password = this.$password.value;
 
-            // if (email == '') {
-            //     this.$email.error = 'Input your email';
-            // } else {
-            //     this.$email.error = '';
-            // }
-
-            // if (password == '') {
-            //     this.$password.error = 'Input your password';
-            // } else {
-            //     this.$password.error = '';
-            // }
-
-            function require(value) {
-                return value != '';
-            }
-
-            function validateEmail(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(email).toLowerCase());
-            }
-
-            let isPassed = (
-                this.$email.validate(require, "Input your email") &&
+            let isPassed = (this.$email.validate(require, "Input your email") &&
                 this.$email.validate(validateEmail, "Wrong email format")
-
-            ) & (
-                    this.$password.validate(require, "Input your password")
-                )
+            ) &
+                this.$password.validate(require, "Input your password");
 
             if (isPassed) {
                 logIn(email, password);
             }
         }
     }
+
+    // action trong thẻ form là đích khi submit
 }
 
 window.customElements.define('login-form', LoginForm);

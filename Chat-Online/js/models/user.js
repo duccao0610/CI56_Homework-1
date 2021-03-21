@@ -12,29 +12,30 @@ export async function register(name, email, password) {
             email: email,
             password: md5(password)
         });
-        alert('Register successfully');
     } else {
         alert('This email has been registered before!')
     }
+
+    alert('Register successfully');
 }
 
 export async function logIn(email, password) {
-    password = md5(password);
-
     let response = await firebase.firestore()
         .collection('users')
         .where('email', '==', email)
-        .where('password', '==', password)
+        .where('password', '==', md5(password))
         .get();
 
-
     if (!response.empty) {
-        alert('Logged in successfully');
+        router.navigate('/index');
     } else {
-        alert('Incorrect email or password');
+        console.log("incorrect");
     }
 }
 
 export function getUserInfo() {
 
 }
+
+// xử lý bất đồng bộ: callback, promise, async/await
+// chỗ nào có promise -> có await -> có async
