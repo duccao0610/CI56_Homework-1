@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2</title>
+</head>
+
+<body>
+    <script>
+        let data = [
+            {
+                name: "Arsenal",
+                points: 99,
+                GD: 45
+            },
+            {
+                name: "Chelsea",
+                points: 75,
+                GD: 39
+            },
+            {
+                name: "Manchester United",
+                points: 75,
+                GD: 40
+            },
+            {
+                name: "Liverpool",
+                points: 75,
+                GD: 40
+            }
+        ]
+
+        for (let i = 0; i < data.length; i++) {
+            for (let k = 0; k < data.length; k++) {
+                if (data[i].points > data[k].points) {
+                    let temp = data[i];
+                    data[i] = data[k];
+                    data[k] = temp;
+                }
+                if (data[i].points == data[k].points) {
+                    if (data[i].GD > data[k].GD) {
+                        let temp = data[i];
+                        data[i] = data[k];
+                        data[k] = temp;
+                    }
+                    if (data[i].GD == data[k].GD) {
+                        if (data[i].name < data[k].name) {
+                            let temp = data[i];
+                            data[i] = data[k];
+                            data[k] = temp;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            data[i].position = i + 1;
+        }
+        console.log(data);
+
+    </script>
+</body>
+
+</html>
