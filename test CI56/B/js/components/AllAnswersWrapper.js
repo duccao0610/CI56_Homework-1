@@ -23,11 +23,18 @@ export default class AllAnswersWrapper extends HTMLElement {
     attributeChangedCallback(attrName, oldValue, newValue) {
         if (attrName == "answers") {
             let answers = JSON.parse(newValue);
+            let correctAnswer = this.getAttribute("correct-answer");
             for (let i = 0; i < answers.length; i++) {
                 let $answer = document.createElement("answer-wrapper");
+                if (answers[i] == correctAnswer) {
+                    $answer.setAttribute("correct", "true");
+                } else {
+                    $answer.setAttribute("correct", "false");
+                }
                 $answer.setAttribute("answer", answers[i]);
                 this.$allAnswers.appendChild($answer);
             }
+            console.log(correctAnswer);
         }
     }
     connectedCallback() {
