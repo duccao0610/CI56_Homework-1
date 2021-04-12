@@ -1,6 +1,11 @@
 const $template = document.createElement("template");
 $template.innerHTML = /*html*/`
-    <div>
+    <style>
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
         <h3 id="question"></h3>
     </div>
 `;
